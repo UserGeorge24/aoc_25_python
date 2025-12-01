@@ -29,26 +29,25 @@ class day_01:
                 self.next_value = ( self.next_value + 100 ) - self.number
             else:
                 self.next_value -= self.number
-        
+
         self.sum_of_zeros = self.sum_of_zeros + 1 if self.next_value == 0 else self.sum_of_zeros
 
     def get_sum_of_zeroes(self):
         
         return self.sum_of_zeros
 
-file_path = "src_01"
+if __name__ == "__main__":
 
-object = day_01()
+    file_path = "src_01"
 
-object.set_starting_value()
+    object = day_01()
 
-with open(file_path,'r') as file:
-    for row in file:
-        
-      object.set_direction(row)
-      
-      object.truncate_number(row)
-      
-      object.calc_next_value()
-      
-print(object.get_sum_of_zeroes())
+    object.set_starting_value()
+
+    with open(file_path, 'r') as file:
+        for row in file:
+            object.set_direction(row)
+            object.truncate_number(row)
+            object.calc_next_value()
+
+    print(object.get_sum_of_zeroes())
